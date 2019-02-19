@@ -1,27 +1,31 @@
 package projects.training.weekOne;
 
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import com.training.generics.ScreenShot;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
-import Project.week1.LoginPage.DashBoardDetails;
-import Project.week1.LoginPage.LoginPageDetails;
-import Project.week1.LoginPage.CustomerPageDetails;
 
-public class TestToDeleteCustomerDetailsFromCustomerList {
+import Project.week1.LoginPage.CustomerPageDetails;
+import Project.week1.LoginPage.DashBoardDetails;
+import Project.week1.LoginPage.*;
+
+public class TestToFilterOrderDetails {
 	
 	private WebDriver driver;
 	private LoginPageDetails LoginPageDetails;
 	private static Properties properties;
 	private DashBoardDetails DashBoardDetails;
-    private CustomerPageDetails CustomerPageDetails;
+    private SalesReportPage SalesReportPage;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws IOException {
@@ -37,7 +41,8 @@ public class TestToDeleteCustomerDetailsFromCustomerList {
 		properties.getProperty("baseURL");
 		new ScreenShot(driver); 
 		DashBoardDetails=new DashBoardDetails(driver);
-		CustomerPageDetails=new CustomerPageDetails(driver);
+		new CustomerPageDetails(driver);
+		SalesReportPage=new SalesReportPage(driver);
 		// open the browser 
 		driver.get("http://retail.upskills.in/admin/");
 	}
@@ -56,14 +61,16 @@ public class TestToDeleteCustomerDetailsFromCustomerList {
 //		screenShot.captureScreenShot("First");
 	}
 	@Test
-	public void TestToDeleteCustomerDetailsFromCustomerList_test() throws InterruptedException {
-		String xpath="/html/body/div[1]/nav/ul/li[7]/ul/li";
-		String ListItem="Customers";
-		String name="User one";
+	public void TestToFilterReportFromReportsModule_test() throws InterruptedException {
+		String xpath="//*[@id=\"menu-report\"]/ul/li";
+		String ListItem="Sales";
+		String ListItem2="Orders";
+		String option="Weeks";
+		String xpath1="//*[@id=\"menu-report\"]/ul/li[1]/ul/li";
 		
-		
-		DashBoardDetails.OpenCustomerLink();	
+		DashBoardDetails.OpenreportLink();
 		DashBoardDetails.chooseLineItems(xpath,ListItem);	
-		CustomerPageDetails.DeleteCustomerFromTable(name);
+		DashBoardDetails.chooseLineItems(xpath1,ListItem2);	
+		SalesReportPage.GroupByOrders(option);
 	}
 }
