@@ -1,4 +1,4 @@
-package Project.week1.LoginPage;
+package com.training.pom;
 
 import java.util.List;
 
@@ -29,14 +29,56 @@ public class CustomerPageDetails {
 	@FindBy(xpath="//*[@id=\"content\"]/div[1]/div/div/button")
 	private WebElement Delete;
 	
+	@FindBy(xpath="//*[@id=\"content\"]/div[1]/div/div/a")
+	private WebElement AddNew;
+	
+	@FindBy(xpath="//*[@id=\"form-customer\"]/div/table/tbody/tr[1]/td[8]/a")
+	private WebElement Edit;
 	
 	
-	public void DeleteCustomerFromTable(String name) {
+	
+	
+	
+	public void DeleteCustomerFromTable1(String name) {
 		Customername.sendKeys(name);
+	}
+	
+	public void DeleteCustomerFromTable2() {
 		filter.click();
+	}
+	
+	public void DeleteCustomerFromTable3() {
 		checkbox.click();
+	}
+		
+	public void DeleteCustomerFromTable4() {	
 		Delete.click();
+	}
+		
+	public void DeleteCustomerFromTable5() {	
 		driver.switchTo().alert().accept();
+		}
+	
+	public void AddNewCustomer() {
+		AddNew.click();
+		System.out.println("it fails at AddNewCustomer");
+		}
+	
+	
+	public void EditCustomer1() {
+		Customername.click();
+	}
+	
+	public void EditCustomer2(String customername) {
+		Customername.sendKeys(customername);
+	}
+	
+	public void EditCustomer3() {
+		filter.click();
+	}
+	
+	public void EditCustomer4() {
+		Edit.click();
 	}
 	
 }

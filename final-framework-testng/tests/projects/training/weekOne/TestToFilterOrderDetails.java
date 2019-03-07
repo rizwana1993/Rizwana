@@ -12,12 +12,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
+import com.training.pom.CustomerPageDetails;
+import com.training.pom.DashBoardDetails;
+import com.training.pom.LoginPageDetails;
+import com.training.pom.SalesReportPage;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
-
-import Project.week1.LoginPage.CustomerPageDetails;
-import Project.week1.LoginPage.DashBoardDetails;
-import Project.week1.LoginPage.*;
 
 public class TestToFilterOrderDetails {
 	
@@ -55,8 +55,10 @@ public class TestToFilterOrderDetails {
 	
 	@BeforeMethod
 	public void validLoginTest() {
-		LoginPageDetails.sendUserName("admin");
-		LoginPageDetails.sendPassword("admin@123");
+		LoginPageDetails.sendUserName1();
+		LoginPageDetails.sendUserName2("admin");
+		LoginPageDetails.sendPassword1();
+		LoginPageDetails.sendPassword2("admin@123");
 		LoginPageDetails.clickLoginBtn(); 
 //		screenShot.captureScreenShot("First");
 	}
@@ -68,9 +70,21 @@ public class TestToFilterOrderDetails {
 		String option="Weeks";
 		String xpath1="//*[@id=\"menu-report\"]/ul/li[1]/ul/li";
 		
+		//Click on Reports icon
 		DashBoardDetails.OpenreportLink();
-		DashBoardDetails.chooseLineItems(xpath,ListItem);	
+		//Click on Sales link
+		DashBoardDetails.chooseLineItems(xpath,ListItem);
+		Thread.sleep(1000);
+		//Click on Orders link
 		DashBoardDetails.chooseLineItems(xpath1,ListItem2);	
-		SalesReportPage.GroupByOrders(option);
+		Thread.sleep(1000);
+		//Click on Group By list box
+		SalesReportPage.GroupByOrders1(option);
+		Thread.sleep(1000);
+		//select valid credentials from Group By list box
+		SalesReportPage.GroupByOrders2();
+		Thread.sleep(1000);
+		//click on Filter button
+		SalesReportPage.GroupByOrders3();
 	}
 }

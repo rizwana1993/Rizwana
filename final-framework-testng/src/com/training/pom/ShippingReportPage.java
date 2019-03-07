@@ -1,4 +1,4 @@
-package Project.week1.LoginPage;
+package com.training.pom;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,9 +22,13 @@ public class ShippingReportPage {
 	private WebElement Filter;
 	
 	
-	public void GroupByOrders(String option) {
+	public void GroupByOrders1(String option) {
 		System.out.print(option);
+	}
+	public void GroupByOrders2() {
 		GroupBy.click();
+	}
+	public void GroupByOrders3() {
 		Filter.click();
 	}
 

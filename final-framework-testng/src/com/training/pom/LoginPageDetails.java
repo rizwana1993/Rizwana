@@ -1,4 +1,4 @@
-package Project.week1.LoginPage;
+package com.training.pom;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,13 +22,19 @@ private WebDriver driver;
 	@FindBy(xpath="//*[@id=\"content\"]/div/div/div/div/div[2]/form/div[3]/button")
 	private WebElement loginBtn; 
 	
-	public void sendUserName(String userName) {
+	public void sendUserName1() {
 		this.userName.clear();
+	}
+		
+	public void sendUserName2(String userName) {
 		this.userName.sendKeys(userName);
 	}
 	
-	public void sendPassword(String password) {
+	public void sendPassword1() {
 		this.password.clear(); 
+	}
+		
+	public void sendPassword2(String password) {
 		this.password.sendKeys(password); 
 	}
 	
