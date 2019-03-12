@@ -96,14 +96,14 @@ public class ProductsPage {
 	public void enterDataDetails1() {
 		chooseLineItems("Data");
 	}
-	public void enterDataDetails2() {
-		model.sendKeys("SKU-012");
+	public void enterDataDetails2(String mOdel) {
+		model.sendKeys(mOdel);
 	}
-	public void enterDataDetails3() {
-		price.sendKeys("500");
+	public void enterDataDetails3(String pRice) {
+		price.sendKeys(pRice);
 	}
-	public void enterDataDetails4() {
-		quantity.sendKeys("50");
+	public void enterDataDetails4(String qty) {
+		quantity.sendKeys(qty);
 	}
 	
 	public void enterLinkDetails1() {
@@ -112,8 +112,8 @@ public class ProductsPage {
 	public void enterLinkDetails2(String manufacturername) {
 		manufacturer.sendKeys(manufacturername);
 	}
-	public void enterLinkDetails3() {
-		categoryTextBox.sendKeys("Electronic1");
+	public void enterLinkDetails3(String text) {
+		categoryTextBox.sendKeys(text);
 	}
 	
 
@@ -125,5 +125,12 @@ public class ProductsPage {
 		chooseLineItems("Attribute");	
 	}
 	
+	@FindBy(xpath="//*[@id=\"header\"]/ul/li[4]")
+	private WebElement logout;
+	
+	
+	public void logout() {
+		logout.click();
+	}
 
 }

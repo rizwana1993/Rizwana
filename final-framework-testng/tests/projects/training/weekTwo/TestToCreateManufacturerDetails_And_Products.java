@@ -96,17 +96,17 @@ public class TestToCreateManufacturerDetails_And_Products {
 		Thread.sleep(1000);
 		ProductsPage.enterDataDetails1();
 		//Enter valid credentials in Price textbox
-		ProductsPage.enterDataDetails2();
+		ProductsPage.enterDataDetails2(manufacturername);
 		//Enter valid credentials in Quantity textbox
-		ProductsPage.enterDataDetails3();
+		ProductsPage.enterDataDetails3(null);
 		//Click on Links tab
-		ProductsPage.enterDataDetails4();
+		ProductsPage.enterDataDetails4(manufacturername);
 		Thread.sleep(1000);
 		ProductsPage.enterLinkDetails1();
 		// Enter valid credentials in Manufacturer textbox
 		ProductsPage.enterLinkDetails2(manufacturername);
 		//Select Category from displayed category list
-		ProductsPage.enterLinkDetails3();
+		ProductsPage.enterLinkDetails3(manufacturername);
 		Thread.sleep(1000);
 		//Keep default values in Attribute, Option, Recurring, Discount, Special, Image, Reward Points and Design tab
 		ProductsPage.clickToAttribute();

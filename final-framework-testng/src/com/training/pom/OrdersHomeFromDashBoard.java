@@ -1,5 +1,6 @@
 package com.training.pom;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -238,6 +239,41 @@ public class OrdersHomeFromDashBoard {
 	
 	public void ChooseAddHistory() {
 		AddHistory.click();
+	}
+	
+	@FindBy(id="input-order-id")
+	private WebElement orderId;
+	
+	@FindBy(id="input-order-status")
+	private WebElement orderStatus_filter;
+	
+	@FindBy(id="input-date-added")
+	private WebElement dateAdded;
+	
+	@FindBy(id="input-customer")
+	private WebElement customerName_filter;
+	
+	@FindBy(id="input-total")
+	private WebElement total;
+	
+	@FindBy(id="input-date-modified")
+	private WebElement dateModified;
+	
+	@FindBy(id="button-filter")
+	private WebElement filterButton;
+	
+	
+	public void filterCustomer(String orderid,String status,String dateAdded2,String customername,String totalValue,String datemodified) throws InterruptedException {
+		orderId.sendKeys(orderid);
+		selectvalue(orderStatus_filter, status, "option");
+		String dateAddedinput=dateAdded2.toString();
+		dateAdded.sendKeys(dateAddedinput);
+		customerName_filter.sendKeys(customername);
+		total.sendKeys(totalValue);
+		String dateModifiedInput=datemodified.toString();
+		dateModified.sendKeys(dateModifiedInput);
+		filterButton.click();
+		Thread.sleep(3000);
 	}
 }
 

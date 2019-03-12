@@ -41,6 +41,7 @@ public class LoginExcelTest {
 		screenShot = new ScreenShot(driver);
 		// open the browser
 		driver.get(baseUrl);
+		driver.get("http://retail.upskills.in/admin/");
 	}
 
 	@AfterMethod
